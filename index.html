@@ -44,7 +44,7 @@
       <h1><a href="index.html">Madhubhashana Mahindarathne</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2>I'm an undergraduate student of the University of Ruhuna in Sri Lanka</h2>
+      <h2>I am an undergraduate student of the <span id="typing-text" class="auto-type"></span> in Sri Lanka</h2>
 
 
       <nav id="navbar" class="navbar">
@@ -79,10 +79,38 @@
           </svg>
         Download CV</a>
       </div>
-
-
     </div>
   </header><!-- End Header -->
+
+
+  <script>
+    // Text to be auto-typed
+    const textToType = "University of Ruhuna";
+
+    // Get the target element
+    const typingTextElement = document.getElementById("typing-text");
+
+    // Function to simulate typing effect
+    function typeText(text, index, interval) {
+      if (index < text.length) {
+        typingTextElement.innerHTML += text.charAt(index);
+        index++;
+        setTimeout(function() {
+          typeText(text, index, interval);
+        }, interval);
+      } else {
+        // Reset index to restart typing
+        setTimeout(function() {
+          typingTextElement.innerHTML = "";
+          typeText(text, 0, interval);
+        }, interval * 5); // Pause for a moment before restarting
+      }
+    }
+
+    // Call the function to start typing
+    typeText(textToType, 0, 100);
+  </script>
+
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about">
